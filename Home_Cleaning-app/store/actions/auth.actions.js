@@ -10,7 +10,7 @@ let timer;
 export const authenticate = (userId, token, expiryTime) => {
   return dispatch => {
     dispatch(setLogoutTimer(expiryTime));
-    dispatch({ type: AUTHENTICATE, userId: userId, token: token });
+    dispatch({ type: AUTHENTICATE, userId: userId, token: token});
   };
 };
 
@@ -92,6 +92,7 @@ export const login = (email, password) => {
       authenticate(
         resData.localId,
         resData.idToken,
+        resData.email,
         parseInt(resData.expiresIn) * 1000
       )
     );

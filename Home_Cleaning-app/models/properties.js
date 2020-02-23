@@ -8,6 +8,7 @@ class Properties {
 		doorcode,
 		type,
 		description,
+		duties,
 		templateChecklist,
 		completedChecklist
 	) {
@@ -19,6 +20,7 @@ class Properties {
 		this.doorcode = doorcode;
 		this.type = type;
 		this.description = description;
+		this.duties = duties;
 		this.templateChecklist = templateChecklist;
 		this.completedChecklist = completedChecklist;
 	}

@@ -4,13 +4,16 @@ import { createAppContainer, createSwitchNavigator, DrawerItems } from 'react-na
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import  Colors from '../constants/Colors';
+import Colors from '../constants/Colors';
 
 import AuthScreen from '../screens/AuthScreen';
 import AdminCheckListScreen from '../screens/Admin/AdminChecklistScreen';
 import AdminDashScreen from '../screens/Admin/AdminDashScreen';
 import AdminPropertiesScreen from '../screens/Admin/AdminPropertiesScreen';
 import AdminUsersScreen from '../screens/Admin/AdminUsersScreen';
+import UserDashScreen from '../screens/User/UserDashScreen';
+import UserChecklistScreen from '../screens/User/UserChecklistScreen';
+import UserPropertiesScreen from '../screens/User/UserPropertiesScreen';
 
 //Platform.OS === 'android' ? Colors.secondary : ''
 const defaultNavOptions = {
@@ -92,6 +95,58 @@ const AdminUsersNavigator = createStackNavigator(
 	}
 );
 
+const UserDashNavigator = createStackNavigator(
+	{
+		Dashboard: UserDashScreen
+	},
+	{
+		navigationOptions: {
+			tabBarIcon: (tabInfo) => (
+				<Ionicons
+					size={23}
+					color={tabInfo.tintColor}
+					name={Platform.OS === 'android' ? 'md-dashboard' : 'ios-speedometer'}
+				/>
+			)
+		},
+		defaultNavigationOptions: defaultNavOptions
+	}
+);
+const UserChecklistNavigator = createStackNavigator(
+	{
+		Checklist: UserChecklistScreen
+	},
+	{
+		navigationOptions: {
+			tabBarIcon: (tabInfo) => (
+				<Ionicons
+					size={23}
+					color={tabInfo.tintColor}
+					name={Platform.OS === 'android' ? 'md-list-box' : 'ios-list-box'}
+				/>
+			)
+		},
+		defaultNavigationOptions: defaultNavOptions
+	}
+);
+const UserPropertyNavigator = createStackNavigator(
+	{
+		Property: UserPropertiesScreen
+	},
+	{
+		navigationOptions: {
+			tabBarIcon: (tabInfo) => (
+				<Ionicons
+					size={23}
+					color={tabInfo.tintColor}
+					name={Platform.OS === 'android' ? 'md-home' : 'ios-home'}
+				/>
+			)
+		},
+		defaultNavigationOptions: defaultNavOptions
+	}
+);
+
 const AdminMainNavigator = createBottomTabNavigator(
 	{
 		Dash: AdminDashNavigator,
@@ -100,14 +155,27 @@ const AdminMainNavigator = createBottomTabNavigator(
 		Users: AdminUsersNavigator
 	},
 	{
-		tabBarOptions:{
-			inactiveBackgroundColor:Colors.primary,
+		tabBarOptions: {
+			inactiveBackgroundColor: Colors.primary,
 			inactiveTintColor: Colors.secondary,
-			activeBackgroundColor:Colors.primaryDark,
-			activeTintColor:Colors.secondary
+			activeBackgroundColor: Colors.primaryDark,
+			activeTintColor: Colors.secondary
 		}
 	}
 );
+
+const UserMainNavigator = createBottomTabNavigator({
+	Dash: UserDashNavigator,
+	Property: UserPropertyNavigator,
+	Checklist:UserChecklistNavigator
+},{
+	tabBarOptions: {
+		inactiveBackgroundColor: Colors.primary,
+		inactiveTintColor: Colors.secondary,
+		activeBackgroundColor: Colors.primaryDark,
+		activeTintColor: Colors.secondary
+	}
+})
 
 const AuthNavigator = createStackNavigator(
 	{
@@ -120,7 +188,8 @@ const AuthNavigator = createStackNavigator(
 
 const MainNavigator = createSwitchNavigator({
 	Auth: AuthNavigator,
-	Admin: AdminMainNavigator
+	Admin: AdminMainNavigator,
+	User: UserMainNavigator
 });
 
 export default createAppContainer(AdminMainNavigator);

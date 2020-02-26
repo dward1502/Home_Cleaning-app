@@ -10,7 +10,7 @@ const AdminPropertiesScreen = (props) => {
 	const properties = useSelector((state) => state.properties.propertyList);
 	const [ isLoading, setIsLoading ] = useState(false);
 	const [ error, setError ] = useState(false);
-	const [layoutWidth, setLayoutWidth] = useState()
+	const [ layoutWidth, setLayoutWidth ] = useState();
 
 	const dispatch = useDispatch();
 
@@ -38,8 +38,11 @@ const AdminPropertiesScreen = (props) => {
 		[ dispatch, loadProperties ]
 	);
 
-	const selectPropertyHandler = (id, title) => {
-		console.log(`Click on property item works passing id and address ${id} ${title}`);
+	const selectPropertyHandler = (id, address) => {
+		props.navigation.navigate('PropertyDetail', {
+			propertyId: id,
+			propertyAddress: address
+		});
 	};
 
 	if (error) {
@@ -64,11 +67,11 @@ const AdminPropertiesScreen = (props) => {
 	}
 
 	onLayout = (event) => {
-		const {width} = event.nativeEvent.layout;
+		const { width } = event.nativeEvent.layout;
 		const itemWidth = 200;
-		const numColumns = Math.floor(width/itemWidth);
+		const numColumns = Math.floor(width / itemWidth);
 		setLayoutWidth(numColumns);
-	}
+	};
 
 	return (
 		<View style={styles.screen}>
@@ -91,8 +94,7 @@ const AdminPropertiesScreen = (props) => {
 				/>
 			</View>
 			<View style={styles.buttonContainer}>
-			<Button title='Add New Property' color={Colors.secondary} />
-
+				<Button title='Add New Property' color={Colors.secondary} />
 			</View>
 		</View>
 	);
@@ -101,7 +103,7 @@ const AdminPropertiesScreen = (props) => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		alignItems:'center'
+		alignItems: 'center'
 	},
 	centered: {
 		flex: 1,
@@ -110,22 +112,22 @@ const styles = StyleSheet.create({
 	},
 	propertiesContainer: {
 		width: '95%',
-		height:'85%',
+		height: '85%',
 		margin: 20,
-		alignItems:'center',
-		backgroundColor:Colors.grey,
+		alignItems: 'center',
+		backgroundColor: Colors.grey,
 		shadowColor: 'black',
 		shadowOpacity: 0.26,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 8,
 		elevation: 5,
-		borderRadius: 10,
+		borderRadius: 10
 	},
-	buttonContainer:{
+	buttonContainer: {
 		backgroundColor: Colors.primary,
 		borderRadius: 15,
-		padding:8,
-		width:300
+		padding: 8,
+		width: 300
 	}
 });
 

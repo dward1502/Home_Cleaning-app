@@ -1,15 +1,20 @@
-import { SET_PROPERTIES} from '../actions/AdminProperty.actions';
+import { SET_PROPERTIES, REMOVE_PROPERTY, EDIT_PROPERTY, CREATE_PROPERTY } from '../actions/AdminProperty.actions';
 
 const initialState = {
-  propertyList:[]
-}
+	propertyList: []
+};
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case SET_PROPERTIES:
-      return {
-        propertyList: action.properties
-      }
-  }
-  return state;
-}
+	switch (action.type) {
+		case SET_PROPERTIES:
+			return {
+				propertyList: action.properties
+			};
+		case REMOVE_PROPERTY:
+			return {
+				...state,
+				propertyList: state.propertyList.filter((property) => property.id !== action.propID)
+			};
+	}
+	return state;
+};

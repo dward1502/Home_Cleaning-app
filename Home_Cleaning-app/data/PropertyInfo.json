@@ -9,14 +9,12 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Ground Kitchen, living room, dining room bathroom,guest bedroom, kids bedroom ",
-				"Cleaner 2":"underground master bathroom, master bedroom,laundry room, half bathroom, wine room stairs, front door and patio in front of the house."
+			"duties": {
+				"Cleaner1": "Ground Kitchen, living room, dining room bathroom,guest bedroom, kids bedroom ",
+				"Cleaner2": "underground master bathroom, master bedroom,laundry room, half bathroom, wine room stairs, front door and patio in front of the house."
 			},
 			"templateChecklist": {},
-			"completedChecklist": [
-				{}
-			]
+			"completedChecklist": [ {} ]
 		},
 		{
 			"id": "2",
@@ -27,9 +25,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"bedrooms, bathroom and living room",
-				"Cleaner 2":"Kitchen and dining room"
+			"duties": {
+				"Cleaner1": "bedrooms, bathroom and living room",
+				"Cleaner2": "Kitchen and dining room"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -43,9 +41,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Kitchen, take out and vacuum room",
-				"Cleaner 2":"Kitchen and dining room"
+			"duties": {
+				"Cleaner1": "Kitchen, take out and vacuum room",
+				"Cleaner2": "Kitchen and dining room"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -59,9 +57,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Banheiros, quartos e laundry",
-				"Cleaner 2":"Cozinha, sala de tv e sala de jantar"
+			"duties": {
+				"Cleaner1": "Banheiros, quartos e laundry",
+				"Cleaner2": "Cozinha, sala de tv e sala de jantar"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -75,9 +73,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Cozinha, sala de tv e sala de jantar e sala de estar ",
-				"Cleaner 2":"Banheiros, quartos, office, corredor e passar pano na entrada da casa "
+			"duties": {
+				"Cleaner1": "Cozinha, sala de tv e sala de jantar e sala de estar ",
+				"Cleaner2": "Banheiros, quartos, office, corredor e passar pano na entrada da casa "
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -91,11 +89,11 @@
 			"doorcode": "#0547",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"First Floor cozinha, Sala de jantar ",
-				"Cleaner 2":"First floor sala de entrada, laundry, tv room, half bathroom, banheiro, quarto e sala de TV",
-				"Cleaner 3" :"Second Floor Bathrooms",
-				"Cleaner 4": "Bedrooms, offices, corredor, escada  e laundry"
+			"duties": {
+				"Cleaner1": "First Floor cozinha, Sala de jantar ",
+				"Cleaner2": "First floor sala de entrada, laundry, tv room, half bathroom, banheiro, quarto e sala de TV",
+				"Cleaner3": "Second Floor Bathrooms",
+				"Cleaner4": "Bedrooms, offices, corredor, escada  e laundry"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -109,9 +107,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":" Banheiro, quarto, sala",
-				"Cleaner 2":"Cozinha, entrada"
+			"duties": {
+				"Cleaner1": " Banheiro, quarto, sala",
+				"Cleaner2": "Cozinha, entrada"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -125,8 +123,7 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-			},
+			"duties": { "Cleaner1": "N/A" },
 			"templateChecklist": {},
 			"completedChecklist": []
 		},
@@ -139,9 +136,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Cozinha, aspirar entrada e sala de jantar",
-				"Cleaner 2":"Banheiros, vacuum master bedroom laundry, vacuum office e sala de TV"
+			"duties": {
+				"Cleaner1": "Cozinha, aspirar entrada e sala de jantar",
+				"Cleaner2": "Banheiros, vacuum master bedroom laundry, vacuum office e sala de TV"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -155,11 +152,11 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Cozinha, sala de jantar",
-				"Cleaner 2":"Banheiro dos fundos, banheiro do meio laundry, corredor dos fundos, sala de estar ate o espelho ",
-				"Cleaner 3":"Master Bathroom, master bedroom escadas, sala de TV, corredor e entrada",
-				"Cleaner 4":"Escritorio, deck, banheiro dos fundos o banheiro dos fundose pra limpar ele gradualmete com intuito de deixar ele perfeito um dia."
+			"duties": {
+				"Cleaner1": "Cozinha, sala de jantar",
+				"Cleaner2": "Banheiro dos fundos, banheiro do meio laundry, corredor dos fundos, sala de estar ate o espelho ",
+				"Cleaner3": "Master Bathroom, master bedroom escadas, sala de TV, corredor e entrada",
+				"Cleaner4": "Escritorio, deck, banheiro dos fundos o banheiro dos fundose pra limpar ele gradualmete com intuito de deixar ele perfeito um dia."
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -173,9 +170,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -189,9 +186,9 @@
 			"doorcode": "#1992",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -205,9 +202,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Parte de cima",
-				"Cleaner 2":"Parte de baixo"
+			"duties": {
+				"Cleaner1": "Parte de cima",
+				"Cleaner2": "Parte de baixo"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -221,9 +218,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "ATENCAO NO BANHEIRO DESSA CASSA SO PODE USAR 409 NA BANHEIRA, O PRODUTO NO ARMARIO DO BANHEIRO",
-			"duties":{
-				"Cleaner 1":"cozinha, sala de jantar, sala de tv, entrada",
-				"Cleaner 2":"Banheiros, quartos, corredor e vacuum e passar pano no play room"
+			"duties": {
+				"Cleaner1": "cozinha, sala de jantar, sala de tv, entrada",
+				"Cleaner2": "Banheiros, quartos, corredor e vacuum e passar pano no play room"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -237,9 +234,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"cozinha e banheiros",
-				"Cleaner 2":"Quartos, sala e dobrar roupa"
+			"duties": {
+				"Cleaner1": "cozinha e banheiros",
+				"Cleaner2": "Quartos, sala e dobrar roupa"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -252,11 +249,11 @@
 			"lockbox": "",
 			"doorcode": "",
 			"type": "",
-			"description": "A CLEANER 3 DESSA CASA VAI PEGAR TAREFAS QUE FORAM PASSADAS PARA CLEANER 1 E 2",
-			"duties":{
-				"Cleaner 1":"Cozinha, sala, entrada e laundry",
-				"Cleaner 2":"Quartos e banheiros e corredor",
-				"Cleaner 3":"Quartos, corredor e sala"
+			"description": "A Cleaner3 DESSA CASA VAI PEGAR TAREFAS QUE FORAM PASSADAS PARA Cleaner1 E 2",
+			"duties": {
+				"Cleaner1": "Cozinha, sala, entrada e laundry",
+				"Cleaner2": "Quartos e banheiros e corredor",
+				"Cleaner3": "Quartos, corredor e sala"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -270,9 +267,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Cozinha, half banheiro e quartos Corredor e escada",
-				"Cleaner 2":"sala, corredor, entrada e banheiro de Cima"
+			"duties": {
+				"Cleaner1": "Cozinha, half banheiro e quartos Corredor e escada",
+				"Cleaner2": "sala, corredor, entrada e banheiro de Cima"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -286,9 +283,9 @@
 			"doorcode": "1247",
 			"type": "",
 			"description": "A casa e a segunda casa dentro do quintal",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -302,9 +299,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -318,10 +315,10 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"cozinha, sala de jantar",
-				"Cleaner 2":"banheiro, quarto, sala de tv",
-				"Cleaner 3":"Sala de estar, half bathroom laundry room, ser responsavel por tarefas extra na casa"
+			"duties": {
+				"Cleaner1": "cozinha, sala de jantar",
+				"Cleaner2": "banheiro, quarto, sala de tv",
+				"Cleaner3": "Sala de estar, half bathroom laundry room, ser responsavel por tarefas extra na casa"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -335,9 +332,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Banheiros, Quartos e corredor, laundry, office",
-				"Cleaner 2":"Cozinha, sala de jantar, sala de Tv e entrada"
+			"duties": {
+				"Cleaner1": "Banheiros, Quartos e corredor, laundry, office",
+				"Cleaner2": "Cozinha, sala de jantar, sala de Tv e entrada"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -351,9 +348,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Master bathroom, master bedroom boy bedroom, second bathroom, corredor e laundry",
-				"Cleaner 2":"Cozinha, sala, entrada quarto da menina "
+			"duties": {
+				"Cleaner1": "Master bathroom, master bedroom boy bedroom, second bathroom, corredor e laundry",
+				"Cleaner2": "Cozinha, sala, entrada quarto da menina "
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -367,9 +364,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"segundo andar, banheiro, master bedroom, half bathrrom, Tv room",
-				"Cleaner 2":"Cozinha, sala, entrada, banheiro e quarto de hospede e corredor"
+			"duties": {
+				"Cleaner1": "segundo andar, banheiro, master bedroom, half bathrrom, Tv room",
+				"Cleaner2": "Cozinha, sala, entrada, banheiro e quarto de hospede e corredor"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -383,9 +380,9 @@
 			"doorcode": "1474 / 7414",
 			"type": "",
 			"description": "essa casa fica nos fundos de outra casa, a entrada e pelo alley, E uma casa amarela em cima da garagem com uma escada e do lado tem a vaga do carro",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -399,9 +396,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "O endereco dessa casa pertence a casa em frente a casa do cliente, ele deu esse endereco pq para ter acesso  a casa dele e necessario entrar pelos fundos.",
-			"duties":{
-				"Cleaner 1":"Banheiros e cozinha,                            ",
-				"Cleaner 2":"quarto, closet, corredor, escada, sala de tv, sala de jantar e entrada"
+			"duties": {
+				"Cleaner1": "Banheiros e cozinha,                            ",
+				"Cleaner2": "quarto, closet, corredor, escada, sala de tv, sala de jantar e entrada"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -415,9 +412,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -431,9 +428,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"escritorio, cozinha, sala de jantar, sala de TV e entrada",
-				"Cleaner 2":" Banheiros, quartos, corredor, escada, laundry room."
+			"duties": {
+				"Cleaner1": "escritorio, cozinha, sala de jantar, sala de TV e entrada",
+				"Cleaner2": " Banheiros, quartos, corredor, escada, laundry room."
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -447,9 +444,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Banheiros, master bedroom, corredor, escada.",
-				"Cleaner 2":"Cozinha, escada da garagem sala de tv e entrada"
+			"duties": {
+				"Cleaner1": "Banheiros, master bedroom, corredor, escada.",
+				"Cleaner2": "Cozinha, escada da garagem sala de tv e entrada"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -463,10 +460,10 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"banheiro da Nan, master bedroom, guest bedroom, corredor",
-				"Cleaner 2":"patios, garagem, sala de tv banheiro, corredor/entrada",
-				"Cleaner 3":"Cozinhas, sala lareira, sala de estar"
+			"duties": {
+				"Cleaner1": "banheiro da Nan, master bedroom, guest bedroom, corredor",
+				"Cleaner2": "patios, garagem, sala de tv banheiro, corredor/entrada",
+				"Cleaner3": "Cozinhas, sala lareira, sala de estar"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -480,9 +477,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -496,9 +493,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -512,9 +509,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Quartos, banheiro, corredor entrada",
-				"Cleaner 2":"Cozinha, sala de jantar e sala de TV"
+			"duties": {
+				"Cleaner1": "Quartos, banheiro, corredor entrada",
+				"Cleaner2": "Cozinha, sala de jantar e sala de TV"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -528,9 +525,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "codigos que vc pode usar em caso o master code nao funciona 705106*  521197*   705260* 0203* 9044* CODIGO DA CASINHA DE ROUPA SUJA - 4505",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -544,9 +541,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "O lixo dessa casa fica nos fundos",
-			"duties":{
-				"Cleaner 1":"Banheiros, quartos, escada",
-				"Cleaner 2":"Cozinha, sala de tv, sala de jantar, office e entrada."
+			"duties": {
+				"Cleaner1": "Banheiros, quartos, escada",
+				"Cleaner2": "Cozinha, sala de tv, sala de jantar, office e entrada."
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -560,9 +557,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":" Banheiros, quartos e office ",
-				"Cleaner 2":"Cozinha, sala de jantar sala de tv, corredor e entrada."
+			"duties": {
+				"Cleaner1": " Banheiros, quartos e office ",
+				"Cleaner2": "Cozinha, sala de jantar sala de tv, corredor e entrada."
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -576,9 +573,9 @@
 			"doorcode": "1225",
 			"type": "",
 			"description": "Nos limpamos a casa dela e a vacation peque Do lado",
-			"duties":{
-				"Cleaner 1":"banheiro, corredor, quartos, limpeza detalhada de todas as Janelas com exceção das janelas da cozinha. Limpar a parte interio da janela Onde abre e fecha, a parte de ferro onde fica com mofo, janelas da sala",
-				"Cleaner 2":"cozinha, sala e entrada."
+			"duties": {
+				"Cleaner1": "banheiro, corredor, quartos, limpeza detalhada de todas as Janelas com exceção das janelas da cozinha. Limpar a parte interio da janela Onde abre e fecha, a parte de ferro onde fica com mofo, janelas da sala",
+				"Cleaner2": "cozinha, sala e entrada."
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -592,9 +589,9 @@
 			"doorcode": "1627",
 			"type": "",
 			"description": "The clean laundry will be on the laundry Room located on the back of the property of The next door house 4647 number of the property. Confirmar q os utensílios que estao dentro do armário da cozinha estão limpos E organizados, a dona sempre limpa o apartamento então esta sempre em Em ótimas condições ",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -608,9 +605,9 @@
 			"doorcode": "6903",
 			"type": "Vacation Rental",
 			"description": "leave the bin with dirty laundry in laundry of the building",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -624,9 +621,9 @@
 			"doorcode": "5124",
 			"type": "",
 			"description": "Leave the bin with dirty laundry in the laundry room of the building",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -640,9 +637,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Parte de cima, sala onde tem o computador sala de jantar.",
-				"Cleaner 2":"Cozinha, Sala de tv, quartos, laundry entrada"
+			"duties": {
+				"Cleaner1": "Parte de cima, sala onde tem o computador sala de jantar.",
+				"Cleaner2": "Cozinha, Sala de tv, quartos, laundry entrada"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -656,9 +653,9 @@
 			"doorcode": "4468",
 			"type": "",
 			"description": "",
-			"duties":{
-				"Cleaner 1":"Parte de cima - escadas",
-				"Cleaner 2":"parte de baixo, escada da garagem"
+			"duties": {
+				"Cleaner1": "Parte de cima - escadas",
+				"Cleaner2": "parte de baixo, escada da garagem"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -672,9 +669,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "They are down in the canyon of a long driveway. look for a sign in the bushes",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -688,9 +685,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "The Book under the sink with information about the house Lembrar de passar o mop de baixo do sofa",
-			"duties":{
-				"Cleaner 1":"parte de cima, quarto de baixo, laundry",
-				"Cleaner 2":"parte de baixo e escada sofa"
+			"duties": {
+				"Cleaner1": "parte de cima, quarto de baixo, laundry",
+				"Cleaner2": "parte de baixo e escada sofa"
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -704,9 +701,9 @@
 			"doorcode": "",
 			"type": "",
 			"description": "Entrance through the alley ATENÇÃO: passar o mop de baixo de todas as Camas. Passar o swifter nas persianas Não deixe de olhar todas as varandas",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -720,9 +717,9 @@
 			"doorcode": "",
 			"type": "Vacation Rental",
 			"description": "Walk up the stairs, and walk through the side hall until you reach the last two-story house. House 4575A is at the top, go up the side stairs and access the lockbox near the front door. ",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -736,9 +733,9 @@
 			"doorcode": "",
 			"type": "Vacation Rental",
 			"description": "Walk up the stairs, and walk through the side hall until you reach the last two-story house. House 4575B is the unit on the first floor.  ",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -752,9 +749,9 @@
 			"doorcode": "020506",
 			"type": "Vacation Rental",
 			"description": "The entrance of the studio is located on the alley behing the street Nautillus if you are looking in direction of the ocean on the left side of the street. the properrty is also behind 363 Nautilus st.  ",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []
@@ -768,9 +765,9 @@
 			"doorcode": "",
 			"type": "Vacation Rental",
 			"description": "Primeira Limpeza",
-			"duties":{
-				"Cleaner 1":"",
-				"Cleaner 2":""
+			"duties": {
+				"Cleaner1": "",
+				"Cleaner2": ""
 			},
 			"templateChecklist": {},
 			"completedChecklist": []

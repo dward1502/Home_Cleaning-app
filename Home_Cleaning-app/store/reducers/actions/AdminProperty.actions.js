@@ -1,9 +1,9 @@
-import Property from '../../models/properties';
+import Property from '../../../models/properties';
 
 export const SET_PROPERTIES = 'SET_PROPERTIES';
 export const EDIT_PROPERTY = 'EDIT_PROPERTY';
 export const REMOVE_PROPERTY = 'REMOVE_PROPERTY';
-export const CREATE_PROPERTY = 'CREATE_PROPERTY'
+export const CREATE_PROPERTY = 'CREATE_PROPERTY';
 
 export const fetchProducts = () => {
 	return async (dispatch, getState) => {
@@ -43,22 +43,40 @@ export const fetchProducts = () => {
 	};
 };
 
-export const createProperty = (address, owner, email,lockbox,doorcode,type,description,duties) => {
-	return async(dispatch, getState) => {
+export const createProperty = (address, owner, email, lockbox, doorcode, type, description, duties) => {
+	return async (dispatch, getState) => {
 		const response = await fetch('https://sdhos-cleaning-app.firebaseio.com/properties.json', {
-			method:'POST',
-			headers:{
-				'Content-Type':'application/json'
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
 			},
-			body:JSON.stringify({
-
+			body: JSON.stringify({
+				address,
+				owner,
+				email,
+				lockbox,
+				doorcode,
+				type,
+				description
 			})
-		})
-		dispatch({type: CREATE_PROPERTY, propertyData: {
+		});
 
-		}})
-	}
-}
+		const resData = await response.json();
+		console.log(`This is create property data : ${resData}`);
+		dispatch({
+			type: CREATE_PROPERTY,
+			propertyData: {
+				address,
+				owner,
+				email,
+				lockbox,
+				doorcode,
+				type,
+				description
+			}
+		});
+	};
+};
 
 export const editProperty = (propertyId, address, owner, email, lockbox, doorcode, type, description, duties) => {
 	return async (dispatch, getState) => {

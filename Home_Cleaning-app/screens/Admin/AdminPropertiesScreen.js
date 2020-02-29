@@ -94,7 +94,9 @@ const AdminPropertiesScreen = (props) => {
 				/>
 			</View>
 			<View style={styles.buttonContainer}>
-				<Button title='Add New Property' color={Colors.secondary} />
+				<Button title='Add New Property' color={Colors.secondary} onPress={()=>{
+					navData.navigation.navigate('EditProduct');
+				}} />
 			</View>
 		</View>
 	);

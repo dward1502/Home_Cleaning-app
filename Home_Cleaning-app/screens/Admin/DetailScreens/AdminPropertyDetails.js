@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, FlatList, Button, Alert } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import * as propertyActions from '../../store/actions/AdminProperty.actions';
 
-import Colors from '../../constants/Colors';
+import Colors from '../../../constants/Colors';
 
 const AdminPropertyDetails = (props) => {
 	const dispatch = useDispatch();

@@ -10,7 +10,7 @@ import AuthScreen from '../screens/AuthScreen';
 import AdminCheckListScreen from '../screens/Admin/AdminChecklistScreen';
 import AdminDashScreen from '../screens/Admin/AdminDashScreen';
 import AdminPropertiesScreen from '../screens/Admin/AdminPropertiesScreen';
-import EditPropertyScreen from '../screens/Admin/EditPropertyScreen';
+import EditPropertyScreen from '../screens/Admin/DetailScreens/EditPropertyScreen';
 import PropertyDetailScreen from '../screens/Admin/AdminPropertyDetails';
 import AdminUsersScreen from '../screens/Admin/AdminUsersScreen';
 import UserDashScreen from '../screens/User/UserDashScreen';

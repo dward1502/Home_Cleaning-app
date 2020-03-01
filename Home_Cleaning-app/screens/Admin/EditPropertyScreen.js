@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 
 
-import Input from '../../../components/UI/Input';
-import Colors from '../../../constants/Colors';
-import HeaderButton from '../../../components/UI/HeaderButton';
-import * as propertyActions from '../../../store/actions/AdminProperty.actions.js';
+import Input from '../../components/UI/Input';
+import Colors from '../../constants/Colors';
+import HeaderButton from '../../components/UI/HeaderButton';
+import * as propertyActions from '../../store/actions/AdminProperty.actions';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPADTE';
 
@@ -34,7 +34,7 @@ const formReducer = (state, action) => {
   return state;
 }
 
-const EditPropertyScreen = () => {
+const EditPropertyScreen = props => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState()
 	const propID = props.navigation.getParam('propertyId');
@@ -136,24 +136,41 @@ const EditPropertyScreen = () => {
   }
 
 	return (
-		<KeyboardAvoidingView style={{flex:1}} behavior='padding' keyboardVerticalOffset={100}>
+    <View style={styles.screen}>
+      <KeyboardAvoidingView style={{flex:1}} behavior='padding' keyboardVerticalOffset={100}>
       <ScrollView>
         <View style={styles.form}>
           <Input 
-          id='address'label='Address' keyboardType='default' 
-          returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={} required/>
-          <Input id='owner'label='Owner' keyboardType='default' autoCapitalize='sentences' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={}
+          id='address'
+          label='Address' 
+          keyboardType='default' 
+          returnKeyType='next' 
+          onInputChange={inputChangeHandler} 
+          initialValue={editedProperty ? editedProperty.address : ''} 
+          initiallyValid={!! editedProperty} 
           required/>
-          <Input id='email'label='Email' keyboardType='' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={}
+          <Input 
+          id='owner'
+          label='Owner' 
+          keyboardType='default' 
+          autoCapitalize='sentences' 
+          returnKeyType='next' 
+          onInputChange={inputChangeHandler} 
+          initialValue={editedProperty ? editedProperty.owner : ''} 
+          initiallyValid={!! editedProperty}
           required/>
-          <Input id='type'label='Type' keyboardType='' autoCapitalize='sentences' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={}
+          <Input id='email'label='Email' keyboardType='email-address' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.email : ''} initiallyValid={!! editedProperty}
           required/>
-          <Input id='description'label='Description' keyboardType='default' autoCapitalize='' returnKeyType='next' multiline numberOfLines={3} minLength={5} onInputChange={inputChangeHandler} initialValue={} initiallyValid={}/>
-          <Input id='lockbox'label='Lockbox #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={}/>
-          <Input id='doorcode'label='Doorcode #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={} initiallyValid={}/>
+          <Input id='type'label='Type' keyboardType='default' autoCapitalize='sentences' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.type : ''} initiallyValid={!! editedProperty}
+          required/>
+          <Input id='description'label='Description' keyboardType='default' autoCapitalize='sentences' returnKeyType='next' multiline numberOfLines={3} minLength={5} onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.description : ''} initiallyValid={!! editedProperty}/>
+          <Input id='lockbox'label='Lockbox #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.lockbox : ''} initiallyValid={!! editedProperty}/>
+          <Input id='doorcode'label='Doorcode #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.doorcode : ''} initiallyValid={!! editedProperty}/>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </View>
+		
 	);
 };
 
@@ -161,18 +178,19 @@ EditPropertyScreen.navigationOptions = navData => {
   const submitFn = navData.navigation.getParam('submit');
   return {
     headerTitle: navData.navigation.getParam('propertyId') ? 'Edit Product' : 'Add Product',
-    headerRight: (
+    headerRight:()=> {(
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='Save' iconName={Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'} onPress={submitFn}/>
       </HeaderButtons>
-    )
+    )}
   }
 }
 
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		justifyContent: 'center'
+    justifyContent: 'center',
+    padding:40
   },
   centered: {
     flex:1,

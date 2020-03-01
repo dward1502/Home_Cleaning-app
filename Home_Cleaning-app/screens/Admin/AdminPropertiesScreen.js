@@ -8,6 +8,7 @@ import * as propertyActions from '../../store/actions/AdminProperty.actions';
 
 const AdminPropertiesScreen = (props) => {
 	const properties = useSelector((state) => state.properties.propertyList);
+	// console.log(JSON.stringify(properties));
 	const [ isLoading, setIsLoading ] = useState(false);
 	const [ error, setError ] = useState(false);
 	const [ layoutWidth, setLayoutWidth ] = useState();
@@ -62,6 +63,9 @@ const AdminPropertiesScreen = (props) => {
 		return (
 			<View style={styles.centered}>
 				<Text>No properties found. Maybe start adding some!</Text>
+				<View style={styles.buttonContainer}>
+				<Button title='Add New Property' color={Colors.secondary} onPress={addPropertyHandler} />
+			</View>
 			</View>
 		);
 	}
@@ -72,6 +76,11 @@ const AdminPropertiesScreen = (props) => {
 		const numColumns = Math.floor(width / itemWidth);
 		setLayoutWidth(numColumns);
 	};
+
+	const addPropertyHandler = () => {
+		console.log('Add new property screen');
+		props.navigation.navigate('EditProperty')
+	}
 
 	return (
 		<View style={styles.screen}>
@@ -94,9 +103,7 @@ const AdminPropertiesScreen = (props) => {
 				/>
 			</View>
 			<View style={styles.buttonContainer}>
-				<Button title='Add New Property' color={Colors.secondary} onPress={()=>{
-					navData.navigation.navigate('EditProduct');
-				}} />
+				<Button title='Add New Property' color={Colors.secondary} onPress={addPropertyHandler} />
 			</View>
 		</View>
 	);
@@ -129,7 +136,8 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.primary,
 		borderRadius: 15,
 		padding: 8,
-		width: 300
+		width: 300,
+		marginTop: 20
 	}
 });
 

@@ -1,4 +1,4 @@
-import Property from '../../../models/properties';
+import Property from '../../models/properties';
 
 export const SET_PROPERTIES = 'SET_PROPERTIES';
 export const EDIT_PROPERTY = 'EDIT_PROPERTY';
@@ -14,13 +14,16 @@ export const fetchProducts = () => {
 				throw new Error('Something went wrong!');
 			}
 			const resData = await response.json();
-			// console.log(`This is response data ${JSON.stringify(resData)}`);
+			// console.log(`ResData ${JSON.stringify(resData)}`);
+		//  console.log(`This is response data ${JSON.stringify(resData)}`);
 			const loadedProperties = [];
 
 			for (const key in resData) {
+				console.log(`${key}`);
 				loadedProperties.push(
 					new Property(
-						resData[key].id,
+						key,
+						// resData[key].id,
 						resData[key].address,
 						resData[key].owner,
 						resData[key].email,
@@ -32,7 +35,7 @@ export const fetchProducts = () => {
 					)
 				);
 			}
-			// console.log(`Loaded properties array${JSON.stringify(loadedProperties)}`);
+			console.log(`Loaded properties array${JSON.stringify(loadedProperties)}`);
 			dispatch({
 				type: SET_PROPERTIES,
 				properties: loadedProperties

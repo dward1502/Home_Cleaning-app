@@ -1,4 +1,4 @@
-import Property from '../../../models/properties';
+import Property from '../../models/properties';
 
 export const SET_PROPERTIES = 'SET_PROPERTIES';
 export const EDIT_PROPERTY = 'EDIT_PROPERTY';

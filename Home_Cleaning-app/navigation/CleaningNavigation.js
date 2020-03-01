@@ -11,7 +11,7 @@ import AdminCheckListScreen from '../screens/Admin/AdminChecklistScreen';
 import AdminDashScreen from '../screens/Admin/AdminDashScreen';
 import AdminPropertiesScreen from '../screens/Admin/AdminPropertiesScreen';
 import EditPropertyScreen from '../screens/Admin/DetailScreens/EditPropertyScreen';
-import PropertyDetailScreen from '../screens/Admin/AdminPropertyDetails';
+import PropertyDetailScreen from '../screens/Admin/DetailScreens/AdminPropertyDetails';
 import AdminUsersScreen from '../screens/Admin/AdminUsersScreen';
 import UserDashScreen from '../screens/User/UserDashScreen';
 import UserChecklistScreen from '../screens/User/UserChecklistScreen';

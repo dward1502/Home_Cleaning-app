@@ -9,6 +9,7 @@ const propertySchema = mongoose.Schema({
   doorcode: String,
   type: String,
   description: String,
+  duties:[{}]
 })
 
 module.exports = mongoose.model('Property', propertySchema)

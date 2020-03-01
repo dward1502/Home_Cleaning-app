@@ -4,12 +4,25 @@ const mongoose = require('mongoose');
 
 const Property = require('../model/property');
 
+//get all properties
 router.get('/', (req, res, next) => {
-	res.status(200).json({
-		message: 'Handling GET requests to /properties'
-	});
+	Property.find()
+		.exec()
+		.then(doc => {
+      console.log(doc);
+      if(doc) {
+        res.status(200).json(doc)
+      } else {
+        res.status(404).json({message:'No Properties are found'})
+      }
+		})
+		.catch(err => {
+      console.log(err)
+      res.status(500).json({error:err})
+    });
 });
 
+//create new properties
 router.post('/', (req, res, next) => {
 	const propertyData = new Property({
 		_id: new mongoose.Types.ObjectId(),
@@ -19,21 +32,22 @@ router.post('/', (req, res, next) => {
 		lockbox: req.body.lockbox,
 		doorcode: req.body.doorcode,
 		type: req.body.type,
-		description: req.body.description
+		description: req.body.description,
+		duties:req.body.duties
 	});
 	propertyData
 		.save()
 		.then(result => {
 			console.log(result);
+			res.status(200).json({
+				message: 'Handling POST requests to /properties',
+				createdProperty: propertyData
+			});
 		})
 		.catch(err => console.log(err));
-
-	res.status(200).json({
-		message: 'Handling POST requests to /properties',
-		createdProperty: propertyData
-	});
 });
 
+//find property by specific property ID
 router.get('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
 
@@ -52,6 +66,8 @@ router.get('/:propertyID', (req, res, next) => {
       res.status(500).json({error:err})
     });
 });
+
+//edit property by specific ID
 router.patch('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
 
@@ -59,6 +75,8 @@ router.patch('/:propertyID', (req, res, next) => {
 		message: `Updated product! /properties/${id}`
 	});
 });
+
+//delete property by specific ID
 router.delete('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
 

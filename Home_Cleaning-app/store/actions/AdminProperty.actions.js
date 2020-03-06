@@ -14,8 +14,6 @@ export const fetchProducts = () => {
 				throw new Error('Something went wrong!');
 			}
 			const resData = await response.json();
-			// console.log(`ResData ${JSON.stringify(resData)}`);
-		//  console.log(`This is response data ${JSON.stringify(resData)}`);
 			const loadedProperties = [];
 
 			for (const key in resData) {

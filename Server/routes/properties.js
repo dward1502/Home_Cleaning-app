@@ -8,22 +8,23 @@ const Property = require('../model/property');
 router.get('/', (req, res, next) => {
 	Property.find()
 		.exec()
-		.then(doc => {
-      console.log(doc);
-      if(doc) {
-        res.status(200).json(doc)
-      } else {
-        res.status(404).json({message:'No Properties are found'})
-      }
+		.then((doc) => {
+			console.log(doc);
+			if (doc) {
+				res.status(200).json(doc);
+			} else {
+				res.status(404).json({ message: 'No Properties are found' });
+			}
 		})
-		.catch(err => {
-      console.log(err)
-      res.status(500).json({error:err})
-    });
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({ error: err });
+		});
 });
 
 //create new properties
 router.post('/', (req, res, next) => {
+
 	const propertyData = new Property({
 		_id: new mongoose.Types.ObjectId(),
 		address: req.body.address,
@@ -33,18 +34,18 @@ router.post('/', (req, res, next) => {
 		doorcode: req.body.doorcode,
 		type: req.body.type,
 		description: req.body.description,
-		duties:req.body.duties
+		// duties: req.body.duties
 	});
 	propertyData
 		.save()
-		.then(result => {
+		.then((result) => {
 			console.log(result);
 			res.status(200).json({
 				message: 'Handling POST requests to /properties',
 				createdProperty: propertyData
 			});
 		})
-		.catch(err => console.log(err));
+		.catch((err) => console.log(err));
 });
 
 //find property by specific property ID
@@ -53,24 +54,47 @@ router.get('/:propertyID', (req, res, next) => {
 
 	Property.findById(id)
 		.exec()
-		.then(doc => {
-      console.log(doc);
-      if(doc) {
-        res.status(200).json(doc)
-      } else {
-        res.status(404).json({message:'No valid entry found for provided ID'})
-      }
+		.then((doc) => {
+			console.log(doc);
+			if (doc) {
+				res.status(200).json({
+					message: 'Retrieved specific property based on ID',
+					data: doc
+				});
+			} else {
+				res.status(404).json({ message: 'No valid entry found for provided ID' });
+			}
 		})
-		.catch(err => {
-      console.log(err)
-      res.status(500).json({error:err})
-    });
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({ error: err });
+		});
 });
 
 //edit property by specific ID
 router.patch('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
 
+	const updateOps = {};
+	for (const ops of req.body) {
+		updateOps[ops.propName] = ops.value;
+	}
+
+	Property.update({ _id: id }, { $set: updateOps })
+		.exec()
+		.then((result) => {
+			console.log(result);
+			res.status(200).json({
+				message: 'Property updated',
+				result: result
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({
+				error: err
+			});
+		});
 	res.status(200).json({
 		message: `Updated product! /properties/${id}`
 	});
@@ -79,9 +103,19 @@ router.patch('/:propertyID', (req, res, next) => {
 //delete property by specific ID
 router.delete('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
-
-	res.status(200).json({
-		message: `Deleted product at /properties/${id}`
+	Property.remove({ _id: id }).exec().then((result) => {
+		res
+			.status(200)
+			.json({
+				message: `Deleted product with ${id}`,
+				result: result
+			})
+			.catch((err) => {
+				console.log(err);
+				res.status(500).json({
+					error: err
+				});
+			});
 	});
 });
 

@@ -41,15 +41,9 @@ const formReducer = (state, action) => {
 	return state;
 };
 
-<<<<<<< HEAD:Home_Cleaning-app/screens/Admin/EditPropertyScreen.js
-const EditPropertyScreen = props => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState()
-=======
 const EditPropertyScreen = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState();
->>>>>>> bdcd044864e26f32dbc8ddbea74cf2e89c6be7fa:Home_Cleaning-app/screens/Admin/DetailScreens/EditPropertyScreen.js
 	const propID = props.navigation.getParam('propertyId');
 	const editedProperty = useSelector(state =>
 		state.properties.propertyList.find(property => property.id === propID)
@@ -152,43 +146,6 @@ const EditPropertyScreen = () => {
 	}
 
 	return (
-<<<<<<< HEAD:Home_Cleaning-app/screens/Admin/EditPropertyScreen.js
-    <View style={styles.screen}>
-      <KeyboardAvoidingView style={{flex:1}} behavior='padding' keyboardVerticalOffset={100}>
-      <ScrollView>
-        <View style={styles.form}>
-          <Input 
-          id='address'
-          label='Address' 
-          keyboardType='default' 
-          returnKeyType='next' 
-          onInputChange={inputChangeHandler} 
-          initialValue={editedProperty ? editedProperty.address : ''} 
-          initiallyValid={!! editedProperty} 
-          required/>
-          <Input 
-          id='owner'
-          label='Owner' 
-          keyboardType='default' 
-          autoCapitalize='sentences' 
-          returnKeyType='next' 
-          onInputChange={inputChangeHandler} 
-          initialValue={editedProperty ? editedProperty.owner : ''} 
-          initiallyValid={!! editedProperty}
-          required/>
-          <Input id='email'label='Email' keyboardType='email-address' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.email : ''} initiallyValid={!! editedProperty}
-          required/>
-          <Input id='type'label='Type' keyboardType='default' autoCapitalize='sentences' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.type : ''} initiallyValid={!! editedProperty}
-          required/>
-          <Input id='description'label='Description' keyboardType='default' autoCapitalize='sentences' returnKeyType='next' multiline numberOfLines={3} minLength={5} onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.description : ''} initiallyValid={!! editedProperty}/>
-          <Input id='lockbox'label='Lockbox #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.lockbox : ''} initiallyValid={!! editedProperty}/>
-          <Input id='doorcode'label='Doorcode #' keyboardType='decimal-pad' returnKeyType='next' onInputChange={inputChangeHandler} initialValue={editedProperty ? editedProperty.doorcode : ''} initiallyValid={!! editedProperty}/>
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
-    </View>
-		
-=======
 		<KeyboardAvoidingView
 			style={{ flex: 1 }}
 			behavior='padding'
@@ -272,23 +229,10 @@ const EditPropertyScreen = () => {
 				</View>
 			</ScrollView>
 		</KeyboardAvoidingView>
->>>>>>> bdcd044864e26f32dbc8ddbea74cf2e89c6be7fa:Home_Cleaning-app/screens/Admin/DetailScreens/EditPropertyScreen.js
 	);
 };
 
 EditPropertyScreen.navigationOptions = navData => {
-<<<<<<< HEAD:Home_Cleaning-app/screens/Admin/EditPropertyScreen.js
-  const submitFn = navData.navigation.getParam('submit');
-  return {
-    headerTitle: navData.navigation.getParam('propertyId') ? 'Edit Product' : 'Add Product',
-    headerRight:()=> {(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item title='Save' iconName={Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'} onPress={submitFn}/>
-      </HeaderButtons>
-    )}
-  }
-}
-=======
 	const submitFn = navData.navigation.getParam('submit');
 	return {
 		headerTitle: navData.navigation.getParam('propertyId')
@@ -307,12 +251,10 @@ EditPropertyScreen.navigationOptions = navData => {
 		)
 	};
 };
->>>>>>> bdcd044864e26f32dbc8ddbea74cf2e89c6be7fa:Home_Cleaning-app/screens/Admin/DetailScreens/EditPropertyScreen.js
 
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-<<<<<<< HEAD:Home_Cleaning-app/screens/Admin/EditPropertyScreen.js
     justifyContent: 'center',
     padding:40
   },
@@ -321,15 +263,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center'
   }
-=======
-		justifyContent: 'center'
-	},
-	centered: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	}
->>>>>>> bdcd044864e26f32dbc8ddbea74cf2e89c6be7fa:Home_Cleaning-app/screens/Admin/DetailScreens/EditPropertyScreen.js
 });
 
 export default EditPropertyScreen;

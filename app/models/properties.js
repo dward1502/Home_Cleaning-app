@@ -2,8 +2,8 @@ class Properties {
 	constructor(
 		id,
 		address,
-    owner,
-    email,
+		owner,
+		email,
 		lockbox,
 		doorcode,
 		type,
@@ -26,4 +26,3 @@ class Properties {
 	}
 }
 export default Properties;
- 

@@ -159,7 +159,7 @@ const EditCreateScreen = (props) => {
 					<Input
 						id='address'
 						label='Address'
-						errorText='Please enter a valid address'
+						errorText='Please enter an address'
 						keyboardType='default'
 						returnKeyType='next'
 						onInputChange={inputChangeHandler}

@@ -7,11 +7,13 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
 import Navigation from './navigation/CleaningNavigator';
-import propertyReducer from './store/reducers/property.actions.reducer';
+import propertyReducer from './store/reducers/property.reducer';
+import userReducer from './store/reducers/users.reducers';
 
 
 const rootReducer = combineReducers({
-	properties: propertyReducer
+	properties: propertyReducer,
+	users: userReducer
 });
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk)));

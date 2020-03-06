@@ -1,47 +1,48 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, ActivityIndicator } from 'react-native';
+import {
+	View,
+	Text,
+	StyleSheet,
+	FlatList,
+	Button,
+	ActivityIndicator
+} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Colors from '../../constants/Colors';
 import * as propertyActions from '../../store/actions/property.actions';
 import PropertyItem from '../../components/AdminPropertyItem';
 
-const AdminPropertyScreen = (props) => {
-	const [ isLoading, setIsLoading ] = useState(false);
-	const [ isRefreshing, setIsRefreshing ] = useState(false);
-	const [ error, setError ] = useState(false);
-	const [ layoutWidth, setLayoutWidth ] = useState();
-	const properties = useSelector((state) => state.properties.propertyList);
+const AdminPropertyScreen = props => {
+	const [isLoading, setIsLoading] = useState(false);
+	const [isRefreshing, setIsRefreshing] = useState(false);
+	const [error, setError] = useState(false);
+	const [layoutWidth, setLayoutWidth] = useState();
+	const properties = useSelector(state => state.properties.propertyList);
 
 	const dispatch = useDispatch();
 
-	const loadProperties = useCallback(
-		async () => {
-			setError(null);
-			setIsRefreshing(true);
-			try {
-				await dispatch(propertyActions.fetchProperties());
-				console.log('Fetched properties');
-			} catch (err) {
-				setError(err.message);
-			}
-			setIsRefreshing(false);
-		},
-		[ dispatch, setIsLoading, setError ]
-	);
+	const loadProperties = useCallback(async () => {
+		setError(null);
+		setIsRefreshing(true);
+		try {
+			await dispatch(propertyActions.fetchProperties());
+			console.log('Fetched properties');
+		} catch (err) {
+			setError(err.message);
+		}
+		setIsRefreshing(false);
+	}, [dispatch, setIsLoading, setError]);
 
-	useEffect(
-		() => {
-			console.log('Initiate laoding properties');
-			setIsLoading(true);
-			loadProperties().then(() => {
-				setIsLoading(false);
-			});
-		},
-		[ dispatch, loadProperties ]
-	);
+	useEffect(() => {
+		console.log('Initiate laoding properties');
+		setIsLoading(true);
+		loadProperties().then(() => {
+			setIsLoading(false);
+		});
+	}, [dispatch, loadProperties]);
 
-	const selectPropertyHandler = (id) => {
+	const selectPropertyHandler = id => {
 		// console.log(`Selected property with ID: ${id}`);
 		props.navigation.navigate('PropertyDetail', {
 			propertyID: id
@@ -50,7 +51,11 @@ const AdminPropertyScreen = (props) => {
 	if (error) {
 		<View style={styles.centered}>
 			<Text style={styles.text}>An error occured!</Text>
-			<Button title='Try Again' onPress={loadProperties} color={Colors.primaryDark} />
+			<Button
+				title='Try Again'
+				onPress={loadProperties}
+				color={Colors.primaryDark}
+			/>
 		</View>;
 	}
 	if (isLoading) {
@@ -63,15 +68,21 @@ const AdminPropertyScreen = (props) => {
 	if (!isLoading && properties.length === 0) {
 		return (
 			<View style={styles.centered}>
-				<Text style={styles.text}>No properties found. Maybe start adding some!</Text>
+				<Text style={styles.text}>
+					No properties found. Maybe start adding some!
+				</Text>
 				<View style={styles.buttonContainer}>
-					<Button title='Add New Property' color={Colors.secondary} onPress={addPropertyHandler} />
+					<Button
+						title='Add New Property'
+						color={Colors.secondary}
+						onPress={addPropertyHandler}
+					/>
 				</View>
 			</View>
 		);
 	}
 
-	const onLayout = (event) => {
+	const onLayout = event => {
 		const { width } = event.nativeEvent.layout;
 		const itemWidth = 200;
 		const numColumns = Math.floor(width / itemWidth);
@@ -92,8 +103,8 @@ const AdminPropertyScreen = (props) => {
 					numColumns={layoutWidth}
 					key={layoutWidth}
 					data={properties}
-					keyExtractor={(item) => item.id}
-					renderItem={(itemData) => (
+					keyExtractor={item => item.id}
+					renderItem={itemData => (
 						<PropertyItem
 							address={itemData.item.address}
 							owner={itemData.item.owner}
@@ -105,7 +116,11 @@ const AdminPropertyScreen = (props) => {
 				/>
 			</View>
 			<View style={styles.buttonContainer}>
-				<Button title='Add New Property' color={Colors.secondary} onPress={addPropertyHandler} />
+				<Button
+					title='Add New Property'
+					color={Colors.secondary}
+					onPress={addPropertyHandler}
+				/>
 			</View>
 		</View>
 	);

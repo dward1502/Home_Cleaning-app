@@ -82,6 +82,7 @@ const AdminEmployeeScreen = props => {
 		);
 	}
 	if (!isLoading && users.length === 0) {
+		console.log(users.length);
 		return (
 			<View style={styles.centered}>
 				<Text style={styles.text}>
@@ -93,6 +94,11 @@ const AdminEmployeeScreen = props => {
 						color={Colors.secondary}
 						onPress={addUserHandler}
 					/>
+					<Button
+				title='Try Again'
+				onPress={loadUsers}
+				color={Colors.primaryDark}
+			/>
 				</View>
 			</View>
 		);
@@ -123,14 +129,14 @@ const AdminEmployeeScreen = props => {
 					<Button
 						title='EDIT USER'
 						color={Colors.secondary}
-						onPress={addUserHandler}
+						onPress={editUserHandler}
 					/>
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button
 						title='DELETE USER'
 						color={Colors.darkRed}
-						onPress={addUserHandler}
+						onPress={deleteHandler}
 					/>
 				</View>
 			</View>

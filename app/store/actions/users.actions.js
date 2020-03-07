@@ -10,16 +10,17 @@ export const fetchUsers = () => {
 		try {
 			console.log('Fetching list of users');
 
-			const response = await fetch('http://0903b3fd.ngrok.io/user');
+			const response = await fetch('http://e471e425.ngrok.io/user');
 			if (!response.ok) {
 				throw new Error('Something went wrong fetching users');
 			}
 			const resData = await response.json();
-
+			console.log(resData.data);
 			const loadedUsers = [];
 			for (const key in resData.data) {
 				loadedUsers.push(
 					new Users(
+						key,
 						resData.data[key]._id,
 						resData.data[key].email,
 						resData.data[key].password,
@@ -32,7 +33,7 @@ export const fetchUsers = () => {
 			}
 			console.log(`Loaded Users ${JSON.stringify(loadedUsers)}`);
 
-			dispatch({ type: SET_USERS, usersInfo: loadedUsers });
+			dispatch({ type: SET_USERS, users: loadedUsers });
 		} catch (err) {
 			throw err;
 		}
@@ -42,7 +43,7 @@ export const fetchUsers = () => {
 export const createUser = (email, password, name, permission) => {
 	return async dispatch => {
 		console.log('Creating a user');
-		const response = await fetch('http://0903b3fd.ngrok.io/user/signup', {
+		const response = await fetch('http://e471e425.ngrok.io/user/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

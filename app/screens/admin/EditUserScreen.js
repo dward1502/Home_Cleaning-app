@@ -47,7 +47,7 @@ const EditUserScreen = props => {
 	const dispatch = useDispatch();
 	const userID = props.navigation.getParam('userID');
 	const editedUser = useSelector(state =>
-		state.users.users.find(userData => userData.id === userID)
+		state.users.userList.find(userData => userData.id === userID)
 	);
 
 	const [formState, dispatchFormState] = useReducer(formReducer, {

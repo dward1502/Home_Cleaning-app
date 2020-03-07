@@ -37,7 +37,7 @@ const AdminDashNavigator = createStackNavigator(
 				<Ionicons
 					size={23}
 					color={tabInfo.tintColor}
-					name={Platform.OS === 'android' ? 'md-dashboard' : 'ios-speedometer'}
+					name={Platform.OS === 'android' ? 'md-compass' : 'ios-speedometer'}
 				/>
 			)
 		},

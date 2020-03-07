@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../model/users');
 
 router.post('/signup', (req, res, next) => {
-	User.find({ email: req.body.email })
+	User.findOne({ email: req.body.email })
 		.exec()
 		.then(user => {
 			if (user) {
@@ -48,7 +48,7 @@ router.post('/signup', (req, res, next) => {
 
 router.delete('/:userID', (req, res, next) => {
 	const id = req.params.userID;
-	User.remove({ _id: id })
+	User.deleteOne({ _id: id })
 		.exec()
 		.then(result => {
 			res.status(200).json({
@@ -104,5 +104,19 @@ router.get('/login', (req, res, next) => {
 });
 
 router.patch('/edit/:userID', (req, res, next) => {});
+
+router.get('/', (req,res,next) => {
+	User.find().exec().then(result =>{
+		res.status(200).json({
+			message:"Fetching user list",
+			data:result
+		})
+	}).catch((err)=>{
+		console.log(err);
+		res.status(500).json({
+			error:err
+		})
+	})
+})
 
 module.exports = router;

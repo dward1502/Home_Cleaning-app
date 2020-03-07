@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
   switch(action.type) {
     case SET_USERS:
       return {
-        usersList: action.usersInfo
+        userList: action.users
       }
     case CREATE_USER:
       const newUser = new Users(

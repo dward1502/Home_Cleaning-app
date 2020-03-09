@@ -8,8 +8,7 @@ import * as Font from 'expo-font';
 
 import Navigation from './navigation/CleaningNavigator';
 import propertyReducer from './store/reducers/property.reducer';
-import userReducer from './store/reducers/users.reducers';
-
+import userReducer from './store/reducers/users.reducers'
 
 const rootReducer = combineReducers({
 	properties: propertyReducer,

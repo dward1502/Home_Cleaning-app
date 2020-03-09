@@ -10,7 +10,7 @@ export const fetchProperties = () => {
 		try {
 			console.log('Fetch list of properties');
 
-			const response = await fetch('http://e471e425.ngrok.io/properties');
+			const response = await fetch('http://10.69.1.89:3030/properties');
 			if (!response.ok) {
 				throw new Error('Something went wrong fetching properties');
 			}
@@ -46,7 +46,7 @@ export const fetchProperties = () => {
 export const createProperty = (address, owner, email, lockbox, doorcode, type, description) => {
 	
 	return async (dispatch) => {
-		const response = await fetch('http://e471e425.ngrok.io/properties', {
+		const response = await fetch('http://10.69.1.89:3030/properties', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export const createProperty = (address, owner, email, lockbox, doorcode, type, d
 
 export const editProperty = (propertyID, address, owner, email, lockbox, doorcode, type, description) => {
 	return async (dispatch) => {
-		const response = await fetch(`http://e471e425.ngrok.io/properties/${propertyID}`, {
+		const response = await fetch(`http://10.69.1.89:3030/properties/${propertyID}`, {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ export const editProperty = (propertyID, address, owner, email, lockbox, doorcod
 
 export const deleteProperty = (propertyID) => {
 	return async (dispatch) => {
-		const response = await fetch(`http://e471e425.ngrok.io/properties/${propertyID}`, {
+		const response = await fetch(`http://10.69.1.89:3030/properties/${propertyID}`, {
 			method:"DELETE"
 		})
 		if(!response.ok) {

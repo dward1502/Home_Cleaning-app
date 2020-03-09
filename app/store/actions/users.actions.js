@@ -1,69 +1,38 @@
-import Users from '../../models/users';
+import User from '../../models/users';
 
-export const SET_USERS = 'SET_USERS';
-export const CREATE_USER = 'CREATE_USER';
-export const EDIT_USER = 'EDIT_USER';
-export const DELETE_USER = 'DELETE_USER';
+export const SET_USER = 'SET_USER';
 
 export const fetchUsers = () => {
-	return async dispatch => {
+	return async (dispatch, getState) => {
 		try {
-			console.log('Fetching list of users');
+			console.log('Fetch list of users');
 
-			const response = await fetch('http://e471e425.ngrok.io/user');
-			if (!response.ok) {
-				throw new Error('Something went wrong fetching users');
+			const response = await fetch('http://10.69.1.89:3030/user');
+			if(!response.ok) {
+				throw new Error('Something went wrong fetching users')
 			}
-			const resData = await response.json();
-			console.log(resData.data);
+			const resData = await response.json()
 			const loadedUsers = [];
-			for (const key in resData.data) {
+
+			for(const key in resData) {
 				loadedUsers.push(
-					new Users(
-						key,
-						resData.data[key]._id,
-						resData.data[key].email,
-						resData.data[key].password,
-						resData.data[key].name,
-						resData.data[key].permission,
-						resData.data[key].hours,
-						// resData.data[key].completedChecklist
+					new User(
+						resData[key]._id,
+						resData[key].email,
+						resData[key].password,
+						resData[key].name,
+						resData[key].permission,
 					)
-				);
+				)
 			}
-			console.log(`Loaded Users ${JSON.stringify(loadedUsers)}`);
 
-			dispatch({ type: SET_USERS, users: loadedUsers });
-		} catch (err) {
-			throw err;
+			console.log(`This is loadedUsers after resDATA : ${JSON.stringify(loadedUsers)}`);
+
+
+			dispatch({type:SET_USER, userData: loadedUsers})
+
+		} catch(err) {
+			throw err
 		}
-	};
-};
-
-export const createUser = (email, password, name, permission) => {
-	return async dispatch => {
-		console.log('Creating a user');
-		const response = await fetch('http://e471e425.ngrok.io/user/signup', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				email: email,
-				password: password,
-				name: name,
-				permission: permission
-			})
-		});
-		const resData = await response.json();
-		dispatch({
-			type: CREATE_USER,
-			userData: {
-				email,
-				password,
-				name,
-				permission
-			}
-		});
-	};
-};
+	}
+}

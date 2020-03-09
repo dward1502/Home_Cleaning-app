@@ -1,35 +1,16 @@
-import {SET_USERS,CREATE_USER,EDIT_USER,DELETE_USER} from '../../models/users';
-import Users from '../../models/users';
+import { SET_USER } from '../actions/users.actions';
+import User from '../../models/users'
 
 const initialState = {
-  userList:[]
+  userList: []
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    case SET_USERS:
+    case SET_USER:
       return {
-        userList: action.users
+        userList: action.userData
       }
-    case CREATE_USER:
-      const newUser = new Users(
-        action.userData.email,
-        action.userData.password,
-        action.userData.name,
-        action.userData.permission
-      )
-      return {
-        ...state,
-        userList: state.users.concat(newUser)
-      }
-    // case EDIT_USER:
-    //   return {
-
-    //   }
-    // case DELETE_USER:
-    //   return {
-        
-    //   }
   }
   return state;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button, Alert, ActivityIndicator, TouchableHighlight } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import * as userActions from '../../store/actions/users.actions';
 
@@ -8,21 +8,26 @@ import Colors from '../../constants/Colors';
 const AdminEmployeeScreen = (props) => {
 	const [ isLoadingUsers, setIsLoadingUsers ] = useState(false);
 	const [ isRefreshing, setIsRefreshing ] = useState(false);
+	const [isUserInfoLoading, setUserInfo] = useState(false);
+	const [userId, setUserId] = useState('');
+
 	const [ error, setError ] = useState(false);
 	const userList = useSelector((state) => state.users.userList);
+	const userInfo = useSelector((state) => state.users.userInfo);
 
 	const dispatch = useDispatch();
 
 	const loadUsers = useCallback(
 		async () => {
 			setError(null);
-			// setIsRefreshing(true);
+			setIsRefreshing(true);
 			try {
 				await dispatch(userActions.fetchUsers());
 				console.log('Fetching users dispatch');
 			} catch (err) {
 				setError(err.message);
 			}
+			setIsRefreshing(false)
 		},
 		[ dispatch, setIsLoadingUsers, setError ]
 	);
@@ -37,6 +42,12 @@ const AdminEmployeeScreen = (props) => {
 		},
 		[ dispatch, loadUsers ]
 	);
+
+	const selectedUserHandler = (id) => {
+		console.log(`Item has been press id : ${id}`);
+		setUserId(id)
+
+	}
 
 	if (error) {
 		<View style={styles.centered}>
@@ -66,26 +77,36 @@ const AdminEmployeeScreen = (props) => {
 		console.log('add new user');
 		props.navigation.navigate('EditUsers');
 	};
-	const deleteHandler = () => {
-		console.log('delete user');
-	};
-	const editUserHandler = () => {
+	const editUserHandler = (id) => {
 		console.log('edit user');
+		props.navigation.navigate('EditUsers', {userID:id})
+	};
+	const deleteHandler = (id) => {
+		console.log('delete user');	
+		Alert.alert('Are you sure?', 'Do you really want to delete this user?', [
+			{text:'No', style:'default'},
+			{
+				text:'Yes',
+				style:'destructive',
+				onPress:()=> {
+					dispatch(userActions.deleteUser(id));
+				}
+			}
+		])
 	};
 
 	return (
 		<View style={styles.screen}>
-			<Text>This is AdminEmployeeScreen</Text>
 			<View style={styles.userContainer}>
 				<FlatList
-					// onRefresh={loadUsers}
-					// refreshing={isRefreshing}
+					onRefresh={loadUsers}
+					refreshing={isRefreshing}
 					data={userList}
 					keyExtractor={(item) => item.id}
 					renderItem={(itemData) => (
-						<View>
+						<TouchableHighlight underlayColor='black' onPress={selectedUserHandler(itemData.item.id)}>
 							<Text style={styles.text}>{itemData.item.email}</Text>
-						</View>
+						</TouchableHighlight>
 					)}
 				/>
 			</View>
@@ -94,11 +115,16 @@ const AdminEmployeeScreen = (props) => {
 					<Button title='CREATE USER' color={Colors.secondary} onPress={addUserHandler} />
 				</View>
 				<View style={styles.buttonContainer}>
-					<Button title='EDIT USER' color={Colors.secondary} onPress={editUserHandler} />
+					<Button title='EDIT USER' color={Colors.secondary} onPress={()=>{editUserHandler('5eabac13ee25bf1c9c0dc067')}} />
 				</View>
 				<View style={styles.buttonContainer}>
-					<Button title='DELETE USER' color={Colors.darkRed} onPress={deleteHandler} />
+					<Button title='DELETE USER' color={Colors.darkRed} onPress={()=>{deleteHandler('5e62e776ead3800e40c1c894')}}  />
 				</View>
+			</View>
+			<View style={styles.userInfoBox}>
+				<View><Text>User email</Text></View>
+				<View><Text>User hours</Text></View>
+				<View></View>
 			</View>
 		</View>
 	);
@@ -112,6 +138,7 @@ const styles = StyleSheet.create({
 	userContainer: {
 		width: '60%',
 		height: '20%',
+		padding: 20,
 		backgroundColor: Colors.lightGrey
 	},
 	buttonBox: {
@@ -136,7 +163,7 @@ const styles = StyleSheet.create({
 	text: {
 		fontFamily: 'montserat',
 		color: Colors.text,
-		fontSize: 20
+		fontSize: 16
 	}
 });
 

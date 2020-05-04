@@ -5,6 +5,7 @@ import ReduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import { YellowBox } from 'react-native';
 
 import Navigation from './navigation/CleaningNavigator';
 import propertyReducer from './store/reducers/property.reducer';
@@ -23,6 +24,9 @@ const fetchFonts = () => {
 		'montserat-bold': require('./assets/Fonts/Montserrat-Bold.ttf')
 	});
 };
+
+
+YellowBox.ignoreWarnings(['Remote debugger']);
 
 
 export default function App() {

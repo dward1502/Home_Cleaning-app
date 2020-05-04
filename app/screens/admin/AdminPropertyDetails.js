@@ -16,7 +16,7 @@ const AdminPropertyDetails = (props) => {
 	// console.log(`Selected property details ${JSON.stringify(selectedProperty)}`);
 
 	const editPropertyHandler = (id) => {
-		props.navigation.navigate('EditProperty', { propertyID: propertyId });
+		props.navigation.navigate('EditProperty', { propertyID: id });
 	};
 
 	const deleteHandler = (id) => {

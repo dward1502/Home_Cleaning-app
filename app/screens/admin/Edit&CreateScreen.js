@@ -243,7 +243,7 @@ const EditCreateScreen = (props) => {
 EditCreateScreen.navigationOptions = (navData) => {
 	const submitFn = navData.navigation.getParam('submit');
 	return {
-		headerTitle: navData.navigation.getParam('propertyID') ? 'Edit Product' : 'Add Product',
+		headerTitle: navData.navigation.getParam('propertyID') ? 'Edit Property' : 'Add Property',
 		headerRight: () => (
 			<HeaderButtons HeaderButtonComponent={HeaderButton}>
 				<Item

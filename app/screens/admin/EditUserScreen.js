@@ -59,7 +59,7 @@ const EditUserScreen = (props) => {
     },
     inputValidities: {
       email: editedUser ? true : false,
-      pasword: editedUser ? true : false,
+      password: editedUser ? true : false,
       name: editedUser ? true : false,
       permission: editedUser ? true : false,
     },

@@ -24,7 +24,9 @@ export default (state = initialState, action) => {
         action.propertyData.lockbox,
         action.propertyData.doorcode,
         action.propertyData.type,
-        action.propertyData.description
+        action.propertyData.description,
+        action.propertyData.duties,
+        action.propertyData.template
       )
       return {
         ...state,

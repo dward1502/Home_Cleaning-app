@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const AdminDashScreen = (props) => {
+const AdminChecklistDetails = (props) => {
 	return (
 		<View>
-			<Text>This is AdminDashScreen</Text>
+			<Text>This is AdminChecklistDetails</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({});
 
-export default AdminDashScreen;
+export default AdminChecklistDetails;

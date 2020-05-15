@@ -43,8 +43,45 @@ export const fetchProperties = () => {
 };
 
 
-export const createProperty = (address, owner, email, lockbox, doorcode, type, description) => {
-	
+export const createProperty = (address, owner, email, lockbox, doorcode, type, description, cleaner1, cleaner2,cleaner3,cleaner4) => {
+
+	const duties = [{id:"Cleaner 1",task:cleaner1},{id:'Cleaner 2',task:cleaner2},{id:'Cleaner 3',task:cleaner3},{id:'Cleaner 4',task:cleaner4}]
+	console.log(JSON.stringify(duties));
+
+	function makeTemplate(string){ 
+		var array = string.split(',')
+		const iterator = array.values()
+		let obj ={}
+		for (const key of iterator){
+			obj = {
+				...obj,
+				[key]: false
+			}
+
+		}	
+		console.log(obj);	
+		return obj;
+	}
+
+	const createTemplateArr = (cleaner1,cleaner2,cleaner3,cleaner4) => {
+		let templateArray = [];
+		let cleaner1Arr = makeTemplate(cleaner1);
+		let cleaner2Arr = makeTemplate(cleaner2);
+		let cleaner3Arr = makeTemplate(cleaner3);
+		let cleaner4Arr = makeTemplate(cleaner4);
+
+		templateArray.push(cleaner1Arr)
+		templateArray.push(cleaner2Arr)
+		templateArray.push(cleaner3Arr)
+		templateArray.push(cleaner4Arr)
+
+		console.log(JSON.stringify(templateArray));
+		return templateArray;
+
+	}
+
+	const template = createTemplateArr(cleaner1,cleaner2,cleaner3,cleaner4)
+
 	return async (dispatch) => {
 		const response = await fetch('http://10.69.1.89:3030/properties', {
 			method: 'POST',
@@ -58,7 +95,9 @@ export const createProperty = (address, owner, email, lockbox, doorcode, type, d
 				lockbox:lockbox,
 				doorcode:doorcode,
 				type:type,
-				description:description
+				description:description,
+				duties:duties,
+				template:template
 			})
 		});
 		const resData = await response.json();

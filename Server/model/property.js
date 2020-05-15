@@ -9,15 +9,9 @@ const propertySchema = mongoose.Schema({
 	doorcode: String,
 	type: String,
 	description: String,
-	duties: [
-		{
-      _id:false,
-			Cleaner1: String,
-			Cleaner2: String,
-			Cleaner3: String,
-			Cleaner4: String
-		}
-	]
+	duties: [mongoose.Schema.Types.Mixed],
+	template:[mongoose.Schema.Types.Mixed],
+	completedChecklist:[mongoose.Schema.Types.Mixed]
 });
 
 module.exports = mongoose.model('Property', propertySchema);

@@ -10,10 +10,12 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
       return {
+        ...state,
         userList: action.userData,
       };
     case SET_USERINFO:
       return {
+        ...state,
         userInfo: action.userData
       }
     case DELETE_USER:
@@ -24,8 +26,8 @@ export default (state = initialState, action) => {
     case CREATE_USER:
       const newUser = new User(
         action.userData.email,
-        action.userData.password,
         action.userData.name,
+        action.userData.password,
         action.userData.permission
       )
       return {

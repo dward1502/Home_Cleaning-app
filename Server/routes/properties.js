@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const Property = require('../model/property');
+const Checklist = require('../model/checklist');
 
 //get all properties
 router.get('/', (req, res, next) => {
@@ -24,6 +25,9 @@ router.get('/', (req, res, next) => {
 
 //create new properties
 router.post('/', (req, res, next) => {
+	console.log(`This is post properties data : ${JSON.stringify(req.body)}`);
+	const duties = req.body.duties;
+	createTemplate(duties)
 
 	const propertyData = new Property({
 		_id: new mongoose.Types.ObjectId(),
@@ -34,12 +38,14 @@ router.post('/', (req, res, next) => {
 		doorcode: req.body.doorcode,
 		type: req.body.type,
 		description: req.body.description,
-		// duties: req.body.duties
+		duties: req.body.duties,
+		template:req.body.template
 	});
+	
 	propertyData
 		.save()
 		.then((result) => {
-			console.log(result);
+			// console.log(`New Property data result ${result}`);
 			res.status(200).json({
 				message: 'Handling POST requests to /properties',
 				createdProperty: propertyData
@@ -47,6 +53,13 @@ router.post('/', (req, res, next) => {
 		})
 		.catch((err) => console.log(err));
 });
+
+createTemplate = (data) => {
+	console.log(`This is duties pre format ${JSON.stringify(data)}`);
+	data.map((i)=>{
+		console.log(i.task);
+	})
+}
 
 //find property by specific property ID
 router.get('/:propertyID', (req, res, next) => {
@@ -74,13 +87,13 @@ router.get('/:propertyID', (req, res, next) => {
 //edit property by specific ID
 router.patch('/:propertyID', (req, res, next) => {
 	const id = req.params.propertyID;
+	console.log(`Edit property info server : ${JSON.stringify(req.body)}`);
+	// const updateOps = {};
+	// for (const ops of req.body) {
+	// 	updateOps[ops.propName] = ops.value;
+	// }
 
-	const updateOps = {};
-	for (const ops of req.body) {
-		updateOps[ops.propName] = ops.value;
-	}
-
-	Property.update({ _id: id }, { $set: updateOps })
+	Property.findOneAndUpdate({ _id: id }, { $set: req.body },{useFindAndModify: false})
 		.exec()
 		.then((result) => {
 			console.log(result);
@@ -95,9 +108,6 @@ router.patch('/:propertyID', (req, res, next) => {
 				error: err
 			});
 		});
-	res.status(200).json({
-		message: `Updated product! /properties/${id}`
-	});
 });
 
 //delete property by specific ID

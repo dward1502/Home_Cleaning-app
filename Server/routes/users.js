@@ -7,6 +7,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../model/users');
 
 router.post('/signup', (req, res, next) => {
+  console.log('Running signup');
+  const body = req.body;
+  console.log(`Request body in server : ${body}`);
   User.findOne({ email: req.body.email })
     .exec()
     .then((user) => {
@@ -15,6 +18,7 @@ router.post('/signup', (req, res, next) => {
           message: 'Email already exists',
         });
       } else {
+        console.log('create new')
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
             return res.status(500).json({
@@ -114,7 +118,7 @@ router.patch('/edit/:userID', (req, res, next) => {
   console.log(body);
   console.log(id);
 
-	User.findOneAndUpdate({_id: id}, {$set:{email:req.body.email,name:req.body.name}},{useFindAndModify: false}).exec().then((result) => {
+	User.findOneAndUpdate({_id: id}, {$set:{email:req.body.email,name:req.body.name,permission:req.body.permission}},{useFindAndModify: false}).exec().then((result) => {
 		console.log(result);
 		res.status(200).json({
 			message:'User updated',

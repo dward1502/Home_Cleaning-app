@@ -13,6 +13,8 @@ import AdminEmployeeScreen from '../screens/admin/AdminEmployeeScreen';
 import EditPropertyScreen from '../screens/admin/Edit&CreateScreen'
 import PropertyDetailScreen from '../screens/admin/AdminPropertyDetails';
 import AdminEditUserScreen from '../screens/admin/EditUserScreen';
+import ChecklistDetailsScreen from '../screens/admin/AdminChecklistDetails';
+import ChecklistTestScreen from '../screens/admin/ChecklistTest';
 
 const defaultNavOptions = {
 	headerStyle: {
@@ -67,7 +69,9 @@ const AdminPropertiesNavigator = createStackNavigator(
 
 const AdminChecklistNavigator = createStackNavigator(
 	{
-		Checklist: AdminChecklistScreen
+		Checklist: AdminChecklistScreen,
+		ChecklistDetails: ChecklistDetailsScreen,
+		ChecklistTest: ChecklistTestScreen
 	},
 	{
 		navigationOptions: {

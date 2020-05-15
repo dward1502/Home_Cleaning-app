@@ -49,7 +49,7 @@ export const fetchUserInfo = (id) => {
         throw new Error('Something went wrong fetching user info');
       }
       const resData = await response.json();
-      console.log(`This is userInfo : ${resData}`);
+      console.log(`This is userInfo : ${JSON.stringify(resData)}`);
 
       dispatch({ type: SET_USERINFO, userData: resData });
     } catch (err) {
@@ -68,6 +68,7 @@ export const createUser = (email, password, name, permission) => {
       body: JSON.stringify({
         email: email,
         name: name,
+        password:password,
         permission: permission,
       }),
     });
@@ -79,8 +80,8 @@ export const createUser = (email, password, name, permission) => {
       type: CREATE_USER,
       userData: {
         email,
-        password,
         name,
+        password,
         permission,
       },
     });
@@ -101,7 +102,7 @@ export const deleteUser = (userID) => {
 
 export const editUser = (userID, email, name, permission) => {
   return async (dispatch) => {
-    const response = await fetch(`http://10.69.1.89:3030/user/edit/${userID}`, {
+  await fetch(`http://10.69.1.89:3030/user/edit/${userID}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -112,9 +113,9 @@ export const editUser = (userID, email, name, permission) => {
         permission,
       }),
     });
-    if (!response.ok) {
-      throw new Error('Something went wrong updating User Info!');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Something went wrong updating User Info!');
+    // }
     dispatch({
       type: EDIT_USER,
       userId: userID,

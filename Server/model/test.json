@@ -1,0 +1,19 @@
+{
+  "_id":"mongoose_schema_id",
+  "property_ID":"id passed from selected property",
+  "cleaners":["cleaner1","cleaner2"],
+  "duties":[
+    {
+      "cleaner1":[
+        {"baseboard":true},
+        {"fans":false}
+      ]
+    },
+    {
+      "cleaner2":[
+        {"baseboard":true},
+        {"fans":false}
+      ]
+    }
+  ]
+}

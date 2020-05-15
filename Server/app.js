@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const propertyRoutes = require('./routes/properties');
 const userRoutes = require('./routes/users');
+const checklistRoutes = require('./routes/checklist')
 
 mongoose.connect(process.env.MONGO_LOCAL, {
 	useNewUrlParser: true,
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 
 app.use('/properties', propertyRoutes);
 app.use('/user', userRoutes);
+app.use('/checklist',checklistRoutes)
 
 app.use((req, res, next) => {
 	const error = new Error('Not Found');

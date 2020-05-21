@@ -48,6 +48,11 @@ const AdminPropertyScreen = props => {
 			propertyID: id
 		});
 	};
+	const addPropertyHandler = () => {
+		console.log('add property button')
+		props.navigation.navigate('EditProperty');
+	};
+
 	if (error) {
 		<View style={styles.centered}>
 			<Text style={styles.text}>An error occured!</Text>
@@ -75,7 +80,7 @@ const AdminPropertyScreen = props => {
 					<Button
 						title='Add New Property'
 						color={Colors.secondary}
-						onPress={addPropertyHandler}
+						onPress={()=>addPropertyHandler()}
 					/>
 				</View>
 			</View>
@@ -89,9 +94,7 @@ const AdminPropertyScreen = props => {
 		setLayoutWidth(numColumns);
 	};
 
-	const addPropertyHandler = () => {
-		props.navigation.navigate('EditProperty');
-	};
+	
 
 	return (
 		<View style={styles.screen}>
@@ -153,8 +156,9 @@ const styles = StyleSheet.create({
 		width: '95%',
 		height: '85%',
 		margin: 20,
+		padding:25,
 		alignItems: 'center',
-		backgroundColor: Colors.lightGrey,
+		backgroundColor: Colors.ghostWhite,
 		shadowColor: 'black',
 		shadowOpacity: 0.26,
 		shadowOffset: { width: 0, height: 2 },

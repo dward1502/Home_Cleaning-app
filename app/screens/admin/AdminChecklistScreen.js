@@ -1,7 +1,7 @@
 import React, {useState,useEffect,useCallback} from 'react';
 import { View, Text, StyleSheet,FlatList,ActivityIndicator } from 'react-native';
 import {useDispatch,useSelector} from 'react-redux'
-import { Colors } from '../../constants/Colors'
+import  Colors  from '../../constants/Colors'
 import * as propertyActions from '../../store/actions/property.actions'
 import PropertyItem from '../../components/AdminPropertyItem'
 
@@ -79,7 +79,7 @@ const AdminChecklistScreen = (props) => {
 					horizontal={false}
 					numColumns={layoutWidth}
 					key={layoutWidth}
-					data={properties}
+					data={propertyInfo}
 					keyExtractor={item => item.id}
 					renderItem = {itemData => (
 						<PropertyItem

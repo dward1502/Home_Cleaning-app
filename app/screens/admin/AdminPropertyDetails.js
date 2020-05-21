@@ -56,16 +56,27 @@ const AdminPropertyDetails = (props) => {
       <View style={styles.container}>
         <View style={styles.propInfoContainer}>
           <View style={styles.information}>
-            <Text style={styles.text}>{selectedProperty.address}</Text>
-            <Text style={styles.text}>Owner : {selectedProperty.owner}</Text>
-            <Text style={styles.text}>Email : {selectedProperty.email}</Text>
-            <Text style={styles.text}>Type : {selectedProperty.type}</Text>
-            <Text style={styles.text}>
-              Lockbox : {selectedProperty.lockbox}
-            </Text>
-            <Text style={styles.text}>
-              Doorcode : {selectedProperty.doorcode}
-            </Text>
+            <Text style={styles.textTitle}>{selectedProperty.address}</Text>
+            <View style={styles.rowText}>
+              <Text style={styles.textTitle}>Owner:    </Text>
+              <Text style={styles.text}>{selectedProperty.owner}</Text>
+            </View>
+            <View style={styles.rowText}>
+              <Text style={styles.textTitle}>Email:    </Text>
+              <Text style={styles.text}>{selectedProperty.email}</Text>
+            </View>
+            <View style={styles.rowText}>
+              <Text style={styles.textTitle}>Type:    </Text>
+              <Text style={styles.text}>{selectedProperty.type}</Text>
+            </View>
+            <View style={styles.rowText}>
+              <Text style={styles.textTitle}>Lockbox:    </Text>
+              <Text style={styles.text}>{selectedProperty.lockbox}</Text>
+            </View>
+            <View style={styles.rowText}>
+              <Text style={styles.textTitle}>Doorcode:    </Text>
+              <Text style={styles.text}>{selectedProperty.doorcode}</Text>
+            </View>
             {selectedProperty.duties.map((keyName, i) => (
               <Text style={styles.text} key={i}>
                 {keyName.id}: {keyName.task}{' '}
@@ -73,9 +84,9 @@ const AdminPropertyDetails = (props) => {
             ))}
           </View>
           <View style={styles.description}>
-            <Text style={styles.text}>Property Details</Text>
+            <Text style={styles.textTitle}>Description:</Text>
             <Text style={styles.text}>
-              Description : {selectedProperty.description}
+             {selectedProperty.description}
             </Text>
           </View>
         </View>
@@ -120,7 +131,8 @@ const styles = StyleSheet.create({
   container: {
     width: '95%',
     height: '80%',
-    margin: 20,
+    marginTop: 20,
+    marginBottom:0,
     padding: 20,
     flexDirection: 'row',
     shadowColor: 'black',
@@ -132,13 +144,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-  },
-  button: {
-    backgroundColor: Colors.primary,
-    borderRadius: 15,
-    padding: 8,
-    width: 300,
-    margin: 10,
   },
   propInfoContainer: {
     backgroundColor: '#fff',
@@ -154,19 +159,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
   },
-  information: {
-    padding: 10,
-    height: '60%',
-    backgroundColor: Colors.lightTan,
-    borderRadius: 15,
-  },
-  description: {
-    marginTop: 25,
-    padding: 10,
-    height: '35%',
-    backgroundColor: Colors.lightTan,
-    borderRadius: 15,
-  },
   checklistContainer: {
     backgroundColor: '#fff',
     width: '35%',
@@ -180,11 +172,42 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
   },
+  button: {
+    backgroundColor: Colors.primary,
+    borderRadius: 15,
+    padding: 8,
+    width: 300,
+    marginBottom: 8,
+    marginRight:15,
+    marginTop:0
+  },
+  information: {
+    padding: 10,
+    height: '70%',
+    backgroundColor: Colors.lightTan,
+    borderRadius: 15,
+  },
+  description: {
+    marginTop: 25,
+    padding: 10,
+    height: '25%',
+    backgroundColor: Colors.lightTan,
+    borderRadius: 15,
+  },
+  rowText:{
+    flexDirection:'row'
+  },
   text: {
     fontFamily: 'montserat',
-    fontSize: 22,
+    fontSize: 18,
     marginTop: 10,
   },
+  textTitle:{
+    fontFamily:'montserat-bold',
+    fontSize:20,
+    marginTop:10,
+    color: Colors.text
+  }
 });
 
 export default AdminPropertyDetails;

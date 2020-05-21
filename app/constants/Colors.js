@@ -6,5 +6,6 @@ const Colors = {
   text:"#31393C",
   lightGrey:"#7785AC",
   darkRed:"#650D1B",
+  ghostWhite:"#D4D9E4"
 }
 export default Colors;
